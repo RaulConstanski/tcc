@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  dbt:
+    build: .
+    volumes:
+      - .:/app
+      # Monta o arquivo de credenciais do GCP (mantenha o .json fora do Git!)
+      - ~/.google/credentials/google_creds.json:/app/google_creds.json
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/google_creds.json
+    profiles: ["dbt_only"]
+
+  jupyter:
+    build: .
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/app
+    command: jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root

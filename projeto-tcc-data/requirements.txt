@@ -1,0 +1,7 @@
+dbt-bigquery
+pandas
+pandas-gbq
+scikit-learn
+matplotlib
+seaborn
+jupyter

@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# dbt
+target/
+dbt_packages/
+logs/
+
+# SEGURANÇA: Credenciais e Configurações Locais
+# O profile do dbt geralmente fica em ~/.dbt/, 
+# mas se você o colocar dentro da pasta do projeto para facilitar, 
+# GARANTA que ele esteja listado aqui:
+profiles.yml
+google_creds.json
+.ipynb_checkpoints
