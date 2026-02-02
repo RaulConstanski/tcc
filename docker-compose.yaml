@@ -6,7 +6,7 @@ services:
     volumes:
       - .:/app
       # Monta o arquivo de credenciais do GCP (mantenha o .json fora do Git!)
-      - ~/.google/credentials/google_creds.json:/app/google_creds.json
+      - ./google_creds.json:/app/google_creds.json
     environment:
       - GOOGLE_APPLICATION_CREDENTIALS=/app/google_creds.json
     profiles: ["dbt_only"]
