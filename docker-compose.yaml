@@ -2,19 +2,30 @@ version: '3.8'
 
 services:
   dbt:
-    build: .
+    build: 
+      context: .
+      args:
+        - USER_ID=${UID:-1000}
+        - GROUP_ID=${GID:-1000}
+    user: "${UID:-1000}:${GID:-1000}" # Força o container a usar seu usuário do Linux/WSL
+    working_dir: /app/dbt_project
     volumes:
       - .:/app
-      # Monta o arquivo de credenciais do GCP (mantenha o .json fora do Git!)
       - ./google_creds.json:/app/google_creds.json
     environment:
       - GOOGLE_APPLICATION_CREDENTIALS=/app/google_creds.json
     profiles: ["dbt_only"]
 
   jupyter:
-    build: .
+    build: 
+      context: .
+      args:
+        - USER_ID=${UID:-1000}
+        - GROUP_ID=${GID:-1000}
+    user: "${UID:-1000}:${GID:-1000}"
     ports:
       - "8888:8888"
     volumes:
       - .:/app
-    command: jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root
+    # Removido o --allow-root, pois agora rodaremos como usuário comum
+    command: jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser

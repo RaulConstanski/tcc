@@ -1,0 +1,9 @@
+version: 2
+sources:
+- name: staging
+  description: Tabelas com adequação básica de tipologia de dados.
+  schema: raw_data
+  tables:
+  - name: loan_data_2025
+    identifier: loan_approval_data_2025
+    description: Tabela loan_approval_data_2025 com tratamento de valores dentro dos campos.

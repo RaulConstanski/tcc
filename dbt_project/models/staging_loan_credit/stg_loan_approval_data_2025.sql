@@ -1,0 +1,24 @@
+SELECT
+  customer_id,
+  age,
+  occupation_status,
+  years_employed,
+  annual_income,
+  credit_score,
+  credit_history_years,
+  savings_assets,
+  current_debt,
+  defaults_on_file,
+  delinquencies_last_2yrs,
+  derogatory_marks,
+  product_type,
+  loan_intent,
+  loan_amount,
+  interest_rate,
+  debt_to_income_ratio,
+  loan_to_income_ratio,
+  payment_to_income_ratio,
+  loan_status
+FROM
+--`tcc-bigdata-486203.raw_data.loan_approval_data_2025`
+{{ source('staging','loan_data_2025') }}
