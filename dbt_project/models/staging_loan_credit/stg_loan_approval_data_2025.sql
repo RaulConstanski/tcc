@@ -19,6 +19,13 @@ SELECT
   loan_to_income_ratio,
   payment_to_income_ratio,
   loan_status
+/*
+## 
+
+sdfadafdsf
+sdfadafdsf
+0##
+*/
 FROM
 --`tcc-bigdata-486203.raw_data.loan_approval_data_2025`
 {{ source('staging','loan_data_2025') }}
